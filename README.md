@@ -128,3 +128,25 @@ pm2 start npm --name "nextjs-app" -- start
 │ 0  │ nextjs-app    │ default     │ 0.39.7  │ fork    │ 6675     │ 0s     │ 0    │ online    │ 0%       │ 36.8mb   │ ubuntu   │ disabled │
 └────┴───────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
 ```
+
+
+Challenges Faced & Solutions
+1. Kernel Update Requirement
+Challenge: After system upgrade, the server required a reboot to load the new kernel version (6.14.0-1016-aws) but was still running the old version (6.14.0-1015-aws).
+
+Solution: Documented the need for reboot but continued deployment since it wasn't critical for application functionality.
+
+2. NVM Installation
+Challenge: Needed to source the bashrc file after NVM installation to make it available in the current session.
+
+Solution: Ran source ~/.bashrc after NVM installation.
+
+3. PM2 Daemonization
+Challenge: First PM2 command automatically spawned the daemon, which is normal but required understanding the process.
+
+Solution: This is expected PM2 behavior - it automatically starts the daemon on first use.
+
+4. Node.js Version Management
+Challenge: Ensuring consistent Node.js version across deployments.
+
+Solution: Used NVM to install and manage the LTS version of Node.js (v24.11.0).
